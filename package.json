@@ -1,0 +1,20 @@
+{
+  "name": "electron_practice_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "webpack",
+    "watch": "webpack -w",
+    "electron": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.8",
+    "request": "^2.83.0",
+    "xml2js": "^0.4.19"
+  }
+}
