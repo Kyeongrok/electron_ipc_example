@@ -1,25 +1,21 @@
-import { ipcMain } from 'electron';
+import {ipcMain} from 'electron';
+import apiCall from '../engine/apiCall';
 
 const electron = require('electron');
-// Module to control application life.
+
 const app = electron.app;
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
-
-const path = require('path');
-const url = require('url');
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-function createWindow () {
+function createWindow() {
   mainWindow = new BrowserWindow({width: 800, height: 600});
   mainWindow.loadURL(`file://${__dirname}/../../index.html`);
 
   ipcMain.on('REQUEST_EVENT', (_e, eventName) => {
-    mainWindow.webContents.send('PRINT_TEXT', 'send_text');
     console.log(eventName);
+    apiCall().then(text => mainWindow.webContents.send('PRINT_TEXT', text))
+      .catch((error) => console.error(e));
+
   });
 
   // Emitted when the window is closed.

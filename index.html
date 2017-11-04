@@ -2,17 +2,20 @@
 <html>
 <head>
 	<title></title>
+	<!-- Insert this line above script imports  -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Insert this line after script imports -->
+	<script>if (window.module) module = window.module;</script>
 </head>
 <body>
 	<button id="bu_1">click</button>
 </body>
 <script>require("./dist/renderer/app.js")</script>
 <script>
-  $(document).ready(function(){
-    $('#bu_1').click(function(){
-      alert('click');
-    });
-  });
+
+
+
 </script>
+
 </html>

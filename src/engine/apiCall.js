@@ -9,19 +9,22 @@ queryParams += `&${encodeURIComponent('srchwrd')}=${encodeURIComponent('주월�
 queryParams += `&${encodeURIComponent('countPerPage')}=${encodeURIComponent('10')}`; /* 페이지당 출력될 개수를 지정 */
 queryParams += `&${encodeURIComponent('currentPage')}=${encodeURIComponent('1')}`; /* 출력될 페이지 번호 */
 
-request({
-  url: url + queryParams,
-  method: 'GET',
-}, (error, response, body) => {
-  console.log('Status', response.statusCode);
-  console.log('Headers', JSON.stringify(response.headers));
-  console.log('Reponse received', body);
+const httpRequest = () => new Promise((resolve, reject) => {
+  request({
+    url: url + queryParams,
+    method: 'GET',
+  }, (error, response, body) => {
+    console.log('Status', response.statusCode);
+    console.log('Headers', JSON.stringify(response.headers));
+    console.log('Reponse received', body);
 
-  parseString(body, function (err, result) {
+    parseString(body, function (err, result) {
 
-    console.dir(result);
-    fs.writeFile('./message.txt', result);
+      console.dir(result);
+      resolve(result);
+      fs.writeFile('./message.txt', result);
+    });
   });
 });
-
+export default httpRequest;
 
