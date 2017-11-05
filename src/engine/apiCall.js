@@ -19,10 +19,8 @@ const httpRequest = () => new Promise((resolve, reject) => {
     console.log('Reponse received', body);
 
     parseString(body, function (err, result) {
-
       console.dir(result);
       resolve(result);
-      fs.writeFile('./message.txt', result);
     });
   });
 });

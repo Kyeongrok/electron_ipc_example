@@ -12,7 +12,7 @@ function createWindow() {
   mainWindow.loadURL(`file://${__dirname}/../../index.html`);
 
   ipcMain.on('REQUEST_EVENT', (_e, eventName) => {
-    console.log(eventName);
+    console.log('eventName:', eventName);
     apiCall().then(text => mainWindow.webContents.send('PRINT_TEXT', text))
       .catch((error) => console.error(e));
 
