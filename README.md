@@ -21,11 +21,48 @@
 
 아래 코드를 이용해 import를 해야함.
 <pre>
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Insert this line after script imports -->
-	<script>if (window.module) module = window.module;</script>
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
 </pre>
+
+<pre>
+7.ipc를 이용해서 파싱 엔진을 호출하고
+8.호출한 결과를 화면으로 보내주어야 한다.
+9.ipc를 쓸려면 ipc를 import해야함
+10.ipc를 import하려면 build electron코드와 웹 브라우저 코드를 합쳐줌
+11.이걸 하려면 webpack을 이용해 가방을 싸듯이 파일을 싸줘야한다.
+12.webpack을 쓰려면 webpack.config.js를 만들어야한다.
+</pre>
+
+<pre>
+main과 renderer가 있음
+1.main은 일렉트론의 메인으로써 화면을 띄움
+2.renderer는 화면을 구성한다.
+3.renderer는 app.js로 만든다.
+4.app.js에는  ipcRenderer를 import한다.
+5.main/index.js에는 ipcMain을 import한다.
+
+</pre>
+
+<pre>
+ipcRenderer
+1.기능 : 화면에 붙어있어서 ipcMain에서 보낸 정보, 데이터를 받아서 처리함
+2.사용법 : 화면을 처음 띄울때 
+ ipcRenderer.on('PRINT_TEXT', (_e, text) => {});
+ 로 띄워준다. 이게 안떠있으면 데이터를 못받는다.
+ 
+ click event일 때 .send를 이용해서 데이터를 보낸다.
+ ipcRenderer.send('REQUEST_EVENT', data);
+ 
+ipcMain
+1.기능 : ipcRenderer로 데이터를 보내준다.
+2.사용법 : main에서 화면을 띄울때 같이 띄워 놓는다.
+
+</pre>
+
+
 
 
 
