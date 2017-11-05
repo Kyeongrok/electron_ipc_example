@@ -9,6 +9,25 @@
   실행한다.
 </pre>
 
+### 구조
+<pre>
+1.버튼을 누르면 뭔가 실행 되어야 한다.
+2.리스너 버튼 누른걸 알아차리는 기능
+3.<button></button>
+4.Id를 줘야함 <button id="bu_1"></button>
+5.jquery가 필요함 그래서 import해야함
+6.jquery를 electron에서 import하려면
+</pre>
+
+아래 코드를 이용해 import를 해야함.
+<pre>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Insert this line after script imports -->
+	<script>if (window.module) module = window.module;</script>
+</pre>
+
+
 
 ### project 빌드하기
 <pre>
