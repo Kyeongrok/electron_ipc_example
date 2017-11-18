@@ -1,5 +1,6 @@
 import {ipcRenderer} from 'electron';
 import fs from 'fs';
+import $ from 'jquery';
 
 ipcRenderer.on('PRINT_TEXT', (_e, text) => {
   try {
