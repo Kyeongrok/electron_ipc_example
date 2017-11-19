@@ -1,5 +1,6 @@
-# korea_public_data
-공공데이터 호출 예제
+## electron build하기
+공공데이터 api를 호출해서 web에 출력하는 예제
+electron ipc를 사용한다.
 
 ### 세팅하는 법
 <pre>
@@ -20,12 +21,13 @@
 </pre>
 
 아래 코드를 이용해 import를 해야함.
-<pre>
+
+```html
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Insert this line after script imports -->
 <script>if (window.module) module = window.module;</script>
-</pre>
+```
 
 <pre>
 7.ipc를 이용해서 파싱 엔진을 호출하고
