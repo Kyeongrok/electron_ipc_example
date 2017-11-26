@@ -50,6 +50,8 @@ $(function() {
 
     $("#printBtn").on('click', function() {
         window.print();
+        $(".file_input_form").hide();
+
     });
 
     //fileInput.addEventListener('drop', handleDrop, false);
@@ -78,15 +80,16 @@ $(function() {
     });
 
     function makeList(search){
-
+      console.log(search);
         var li = "";
         var li1 = "";
         var li2 = "";
         var arr;
         var dear = "";
         var pagebreak = "";
-        // list 배열을 순회하면서 data 정보를 가져옴 
+        // list 배열을 순회하면서 data 정보를 가져옴
         var i = 0;
+
         $.each(jsonData, function(k, item) {
             arr = [];
             for (var prop in item) {
@@ -97,7 +100,7 @@ $(function() {
                 return;
             }
 
-            if (++i == 14) {
+            if (i++ == 14) {
                 pagebreak = "";
                 i = 0;
             } else {

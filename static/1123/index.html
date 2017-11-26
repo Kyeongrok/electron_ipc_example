@@ -27,12 +27,12 @@ height: 153px;
 */
 
 #loading {
-display: none;
-position: absolute;
-top: 50%;
-left: 50%;
-margin-right: -50%;
-transform: translate(-50%, -50%)
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
 
 #loading h2 {
@@ -48,10 +48,10 @@ button, #exampleModalLong, .form-group {
 
 .addr1,
 .addr2 {
-margin-top: 3px;
-margin-left: 20px;
-text-align: left;
-margin-bottom: 5px;
+  margin-top: 3px;
+  margin-left: 20px;
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .addr2 {
@@ -60,66 +60,63 @@ margin-bottom: 30px;
 
 .name,
 .post {
-text-align: right;
-font-size: 18px;
+  text-align: right;
+  font-size: 18px;
 }
 
 .name {
-margin-bottom: 10px;
-font-weight: bold;
+  margin-bottom: 2px;
+  font-weight: bold;
 }
 
-.name span {
-margin-left: 10px;
-}
-
-.post {
-letter-spacing: 10px;
-}
+.name span {  margin-left: 10px;}
+.post { letter-spacing: 10px;}
 
 @page {
-size: A4;
-size: 21cm 29.7cm;
-margin-top: 15.15mm !important;
-/* plus .6 inches from padding */
-margin-bottom: 15.15mm !important;
-/* plus .6 inches from padding */
-margin-left: 4.9mm !important;
-/* plus .6 inches from padding */
-margin-right: 4.9mm !important;
-/* plus .6 inches from padding */
+  size: A4;
+  size: 21cm 29.7cm;
+  margin-top: 15mm !important;
+  /* plus .6 inches from padding */
+  margin-bottom: 15mm !important;
+  /* plus .6 inches from padding */
+  margin-left: 4.9mm !important;
+  /* plus .6 inches from padding */
+  margin-right: 4.9mm !important;
+  /* plus .6 inches from padding */
 }
 
 body {
-max-width: 210mm !important;
-/* plus .6 inches from padding */
-max-height: 297mm !important;
-/* plus .6 inches from padding */
-min-width: 210mm !important;
-/* plus .6 inches from padding */
-min-height: 297mm !important;
-margin-left: 4.9mm !important;
-/* plus .6 inches from padding */
-margin-right: 4.9mm !important;
-/* plus .6 inches from padding */
-/* ... the rest of the rules ... */
+  max-width: 210mm !important;
+  /* plus .6 inches from padding */
+  /*max-height: 297mm !important;*/
+  /* plus .6 inches from padding */
+  min-width: 210mm !important;
+  /* plus .6 inches from padding */
+  min-height: 297mm !important;
+  margin-left: 4.9mm !important;
+  /* plus .6 inches from padding */
+  margin-right: 4.9mm !important;
+  /* plus .6 inches from padding */
+  /* ... the rest of the rules ... */
 }
 
 .top {
-margin-top: 15.15mm !important;
+  margin-top: 10mm !important;
 }
 
 .left {
-margin-left: 4.9mm !important;
+  margin-left: 4.9mm !important;
 }
 
 .label {
-width: 99.1mm !important;
-height: 38.1mm !important;
-max-width: 99.1mm !important;
-max-height: 38.1mm !important;
-display: inline-block;
-overflow: hidden;
+  width: 99.1mm !important;
+  height: 38.1mm !important;
+  max-width: 99.1mm !important;
+  max-height: 38.1mm !important;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #666666;
+
 }
 
 
@@ -140,24 +137,26 @@ margin-bottom: 15.15mm !important;
 </head>
 
 <body>
-<div class="form-group">
-<input type="file" class="form-control" id="fileInput" />
-<input type="text" class="form-control" id="dear" placeholder="예시: 귀하, 귀중" value="" />
-<input type="text" id="search" value="" placeholder="이름검색..." maxlength="20" />
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  도움말
-</button>
+<div class="form-group file_input_form">
+  <input type="file" class="form-control" id="fileInput" />
+  <input type="text" class="form-control" id="dear" placeholder="예시: 귀하, 귀중" value="" />
+  <input type="text" id="search" value="" placeholder="이름검색..." maxlength="20" />
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    도움말
+  </button>
+  <div id="loading">
+    <h2>잠시만 기다려 주세요..</h2>
+  </div>
+
+  <button id="printBtn">프린트</button>
 </div>
-<div id="loading">
-<h2>잠시만 기다려 주세요..</h2>
-</div>
-<button id="printBtn">프린트</button>
+
 <div id="labels"></div>
 <!-- <ul id="list1">
 </ul>
 <ul id="list2">
 </ul> -->
-<div style="width: 100%; height: 500px;" id="result"></div>
+
 
 <!-- Button trigger modal -->
 

@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     'main/index': './src/main/index.js',
     'renderer/app': './src/renderer/app.js',
+    'static/print3':'./static/print3/printEx.js'
   },
   output: {
     filename: 'dist/[name].js'
